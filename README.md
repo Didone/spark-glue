@@ -32,7 +32,7 @@ Ao final da execução da imagem, seu console terá o endereço e *token* de aut
      or http://127.0.0.1:8888/?token=6e1b84b3519bf699313ea05182dc038238f12e67c745d2fb
 ```
 
-![tripdata.ipynb](img/notebook.png)
+![tripdata.ipynb](https://github.com/Didone/spark-glue/blob/img/notebook.png?raw=true)
 
 ### Portas
 
