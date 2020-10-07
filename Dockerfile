@@ -4,6 +4,7 @@ ARG MAVEN_REPO="https://aws-glue-etl-artifacts.s3.amazonaws.com/glue-common/apac
 ARG SPARK_REPO="https://aws-glue-etl-artifacts.s3.amazonaws.com/glue-1.0/spark-2.4.3-bin-hadoop2.8.tgz"
 ARG GLUE_REPO="https://github.com/awslabs/aws-glue-libs/archive/glue-1.0.zip"
 ARG AVRO_REPO="https://repo1.maven.org/maven2/org/apache/spark/spark-avro_2.11/2.4.0/spark-avro_2.11-2.4.0.jar"
+ARG DEEQ_REPO="https://repo1.maven.org/maven2/com/amazon/deequ/deequ/1.0.5/deequ-1.0.5.jar"
 ARG AWS_REGION="us-east-1"
 # Install
 ENV JAVA_HOME="/usr/lib/jvm/java-openjdk"\
@@ -33,7 +34,8 @@ RUN mkdir -p ${AWS_HOME} && \
     echo "[default]" > ${AWS_HOME}/config && \
     echo "region = ${AWS_REGION}" >> ${AWS_HOME}/config && \
     chmod +x bin/* && ./bin/glue-setup.sh && cp -Rf jarsv1/*.jar $SPARK_HOME/jars && \
-    wget --quiet "${AVRO_REPO}" && mv spark-avro_2.11-2.4.0.jar $SPARK_HOME/jars
+    wget --quiet "${AVRO_REPO}" && mv spark-avro_2.11-2.4.0.jar $SPARK_HOME/jars\
+    wget --quiet "${DEEQ_REPO}" && mv deequ-1.0.5.jar $SPARK_HOME/jars
 # Jupyter notebook
 RUN cp -Rf awsglue/ $SPARK_HOME/python 
 ENV PYSPARK_PYTHON="python3"\
