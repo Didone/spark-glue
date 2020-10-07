@@ -34,7 +34,7 @@ RUN mkdir -p ${AWS_HOME} && \
     echo "[default]" > ${AWS_HOME}/config && \
     echo "region = ${AWS_REGION}" >> ${AWS_HOME}/config && \
     chmod +x bin/* && ./bin/glue-setup.sh && cp -Rf jarsv1/*.jar $SPARK_HOME/jars && \
-    wget --quiet "${AVRO_REPO}" && mv spark-avro_2.11-2.4.0.jar $SPARK_HOME/jars\
+    wget --quiet "${AVRO_REPO}" && mv spark-avro_2.11-2.4.0.jar $SPARK_HOME/jars && \
     wget --quiet "${DEEQ_REPO}" && mv deequ-1.0.5.jar $SPARK_HOME/jars
 # Jupyter notebook
 RUN cp -Rf awsglue/ $SPARK_HOME/python 
