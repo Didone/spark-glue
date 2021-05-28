@@ -7,30 +7,10 @@ Imagem utilizada para o desenvolvimento, testes e debug de códigos *Spark* para
 As conexões aos serviços aws são feitos através da **Access Key** e **Secret Key** do usuário *IAM* que deverão ser passadas para o container como variáveis de ambiente (`AWS_ACCESS_KEY_ID` e `AWS_SECRET_ACCESS_KEY`)
 
 ```sh
-docker run -v $(pwd)/notebooks:/tmp/notebooks \
-    -e "AWS_ACCESS_KEY_ID=XXXXXXXXXXXXXX" \
-    -e "AWS_SECRET_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXX" \
-    -e "AWS_DEFAULT_REGION=us-east-1"\
-    -p 8888:8888 -p 4040:4040 didone/spark-glue
+docker run -v $(pwd)/notebooks:/home/jupyter/jupyter_default_dir -p 8888:8888 -p 4040:4040 didone/spark-glue
 ```
 
-Ao final da execução da imagem, seu console terá o endereço e *token* de autenticação do **Jupyter Notebook**
-
-```log
-[I 14:33:42.465 NotebookApp] Serving notebooks from local directory: /root
-[I 14:33:42.465 NotebookApp] Jupyter Notebook 6.1.3 is running at:
-[I 14:33:42.465 NotebookApp] http://9824aeb26261:8888/?token=6e1b84b3519bf699313ea05182dc038238f12e67c745d2fb
-[I 14:33:42.465 NotebookApp]  or http://127.0.0.1:8888/?token=6e1b84b3519bf699313ea05182dc038238f12e67c745d2fb
-[I 14:33:42.465 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[W 14:33:42.488 NotebookApp] No web browser found: could not locate runnable browser.
-[C 14:33:42.489 NotebookApp]
-
-    To access the notebook, open this file in a browser:
-        file:///root/.local/share/jupyter/runtime/nbserver-1-open.html
-    Or copy and paste one of these URLs:
-        http://9824aeb26261:8888/?token=6e1b84b3519bf699313ea05182dc038238f12e67c745d2fb
-     or http://127.0.0.1:8888/?token=6e1b84b3519bf699313ea05182dc038238f12e67c745d2fb
-```
+You can access your envinroment on <http://localhost:8888>
 
 ![tripdata.ipynb](https://raw.githubusercontent.com/Didone/spark-glue/master/img/notebook.png)
 
