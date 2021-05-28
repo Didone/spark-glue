@@ -31,10 +31,5 @@ Caso queira gerar sua própria imagem utilize os argumentos de build (`--build-a
 > Estes argumentos são opcionais, o build utilizará os parametros padrão caso nenhum valor seja valor informado
 
 ```sh
-docker image build \
-    --build-arg MAVEN_REPO="https://aws-glue-etl-artifacts.s3.amazonaws.com/glue-common/apache-maven-3.6.0-bin.tar.gz"\
-    --build-arg SPARK_REPO="https://aws-glue-etl-artifacts.s3.amazonaws.com/glue-1.0/spark-2.4.3-bin-hadoop2.8.tgz"\
-    --build-arg GLUE_REPO="https://github.com/awslabs/aws-glue-libs/archive/glue-1.0.zip"\
-    --build-arg AVRO_REPO="https://repo1.maven.org/maven2/org/apache/spark/spark-avro_2.11/2.4.0/spark-avro_2.11-2.4.0.jar"\
-    --build-arg AWS_REGION="us-east-1" -t <<IMG_NAME> .
+docker image build -t <<IMG_NAME> .
 ```
